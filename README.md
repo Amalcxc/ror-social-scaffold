@@ -21,38 +21,25 @@ Rails: 5.2.3
 Postgres: >=9.5
 
 ### Setup
+  - Use your github account and your terminal to clone this repository to your computer:
 
-Instal gems with:
+  - git clone https://github.com/Amalcxc/ror-social-scaffold.git
 
-```
-bundle install
-```
+  - Go to the cloned directory: cd ror-social-scaffold
 
-Setup database with:
+  - Run bundler install to install the Gems for the project
 
-```
-   rails db:create
-   rails db:migrate
-```
+  - Run yarn install to install the project dependencies
 
+  - Run rails db:migrate to create and setup the database
 
 
 
 ### Usage
 
-Start server with:
-
-```
-    rails server
-```
-
-Open `http://localhost:3000/` in your browser.
+Start server with: Run rails s and go to http://localhost:3000/ in your browser.
 
 ### Run tests
-
-```
-    rpsec --format documentation
-```
 
 > Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
 
