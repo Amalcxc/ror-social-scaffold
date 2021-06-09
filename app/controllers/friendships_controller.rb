@@ -13,19 +13,17 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.where(friend_id: [current_user, params[:id]], user_id: [current_user, params[:id]]).first
     @friendship.update(confirmed: true)
     if @friendship.save
-      redirect_to users_path, notice: "Friend request accepted."
+      redirect_to users_path, notice: 'Friend request accepted.'
     else
-      redirect_to users_path, alert: "Unable to accept friend request."
+      redirect_to users_path, alert: 'Unable to accept friend request.'
     end
   end
 
-  
   def destroy
-    @friendship = Friendship.where(friend_id: [current_user, params[:id]]).where(user_id: [current_user, params[:id]]).last
+    @friendship = Friendship.where(friend_id: [current_user,
+                                               params[:id]]).where(user_id: [current_user, params[:id]]).last
     @friendship.destroy
-    flash[:notice] = "Friend request declined."
+    flash[:notice] = 'Friend request declined.'
     redirect_to users_path
   end
-
-  
 end
