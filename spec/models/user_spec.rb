@@ -20,4 +20,29 @@ RSpec.describe User, type: :model do
     user = User.create(name: '', email: '', password: '', password_confirmation: '')
     expect(user.errors.full_messages).to eq(["Email can't be blank", "Password can't be blank", "Name can't be blank"])
   end
+
+  it 'should have many posts' do
+    t = User.reflect_on_association(:posts)
+    expect(t.macro).to eq(:has_many)
+  end
+
+  it 'should have many posts' do
+    t = User.reflect_on_association(:comments)
+    expect(t.macro).to eq(:has_many)
+  end
+
+  it 'should have many posts' do
+    t = User.reflect_on_association(:likes)
+    expect(t.macro).to eq(:has_many)
+  end
+
+  it 'should have many posts' do
+    t = User.reflect_on_association(:friendships)
+    expect(t.macro).to eq(:has_many)
+  end
+
+  it 'should have many posts' do
+    t = User.reflect_on_association(:pending_friends)
+    expect(t.macro).to eq(:has_many)
+  end
 end

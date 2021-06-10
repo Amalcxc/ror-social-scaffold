@@ -9,4 +9,8 @@ RSpec.describe Friendship, type: :model do
     expect(user.friendships.create(friend_id: friend.id,
                                    confirmed: nil)).to eql(Friendship.find_by(user_id: user.id))
   end
+  it 'Fails when you try to create a friendship without all parameters' do
+    friendship = Friendship.create
+    expect(friendship.errors.full_messages).to eql(["User must exist", "Friend must exist"])
+  end
 end

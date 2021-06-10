@@ -1,13 +1,23 @@
 <section class="user-section">
 
   <h2><%= "Name: #{@user.name}" %></h2>
-  <article class="timeline">
-    <h3>Recent posts:</h3>
-    <ul class="posts">
-      <%= render @posts %>
-    </ul>
+   <span class= "friend">
+   <% unless @user == current_user  || current_user.friend?(@user) %>
+       <button type="button" class="btn btn-success">
+        <%= link_to 'invite', create_friendship_path(@user), method: :post %>
+       </button>
+    <% end %>
+  </span>
+ <% if current_user.friends.include?(@user) || current_user == @user %>
+      <h3>Recent posts:</h3>
+      <ul class="posts">
+        <%= render @posts %>
+      </ul>      
+    <% else %>
+      <h3>You are not friend of this user</h3>
+<% end %>
+ 
      
-  </article>
 <%if current_user == @user%>
   <h1>friend requests</h1>
  <% current_user.friend_requests.each do |user|%>
@@ -26,6 +36,4 @@
     <%= render user%>
   <%end%>
 <%end%>  
- 
-
  
