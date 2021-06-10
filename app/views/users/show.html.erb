@@ -21,7 +21,7 @@
         <%= link_to 'Accept', friendship_path(:id => user.id), :method => :patch%>
       </button>
       <button class='btn btn-outline-warning btn-sm gap-1 mb-2'>
-       <%= link_to 'Delete', friendship_path(:id => user.id), :method => :delete%>
+       <%= link_to 'reject', friendship_path(:id => user.id), :method => :delete%>
       </button>
       
     <%end%>
