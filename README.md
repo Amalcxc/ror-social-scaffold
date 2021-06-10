@@ -1,6 +1,7 @@
 # Scaffold for social media app with Ruby on Rails
 
-> This repo includes intial code for social media app with basic styling. Its purpose is to be a starting point for Microverse students.
+> The purpose of this project is to build a social media app, using RoR, which allows users to send friendship requests and accept/reject friendship invitations, create posts, make comments and add likes/dislikes on the posts.
+
 
 ## Built With
 
