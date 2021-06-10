@@ -4,7 +4,7 @@
     <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
   </span>
   <span class= "friend">
-   <% unless user == current_user  || current_user.friend?(user) %>
+   <% unless user == current_user  || current_user.friends.include?(user) %>
        <button type="button" class="btn btn-success">
        <%= link_to 'invite', create_friendship_path(user), method: :post %>
        </button> 
