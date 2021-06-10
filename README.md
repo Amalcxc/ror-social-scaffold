@@ -9,8 +9,6 @@
 
 ## Live Demo
 
-TBA
-
 
 ## Getting Started
 
@@ -23,55 +21,43 @@ Rails: 5.2.3
 Postgres: >=9.5
 
 ### Setup
+  - Use your github account and your terminal to clone this repository to your computer:
 
-Instal gems with:
+  - git clone https://github.com/Amalcxc/ror-social-scaffold.git
 
-```
-bundle install
-```
+  - Go to the cloned directory: cd ror-social-scaffold
 
-Setup database with:
+  - Run bundler install to install the Gems for the project
 
-```
-   rails db:create
-   rails db:migrate
-```
+  - Run yarn install to install the project dependencies
 
-### Github Actions
+  - Run rails db:migrate to create and setup the database
 
-To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
-
-1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
-2. Create the `feature/branch` and push.
-3. Start working on your milestone as usual.
-4. Open a PR from the `feature/branch` when your work is done.
 
 
 ### Usage
 
-Start server with:
-
-```
-    rails server
-```
-
-Open `http://localhost:3000/` in your browser.
+Start server with: Run rails s and go to http://localhost:3000/ in your browser.
 
 ### Run tests
-
-```
-    rpsec --format documentation
-```
 
 > Tests will be added by Microverse students. There are no tests for initial features in order to make sure that students write all tests from scratch.
 
 ### Deployment
 
-TBA
+TB
 
 ## Authors
 
-TBA
+👤 **Amal Hersi**
+
+- GitHub: [Amal Hersi](https://github.com/Amalcxc)
+
+- Twitter: [@Amalcx4](https://twitter.com/home?lang=en)
+
+- LinkedIn: [Amal Hersi](https://www.linkedin.com/in/amal-hersi-a29583205/)
+
+
 
 ## 🤝 Contributing
 
