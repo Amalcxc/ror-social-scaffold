@@ -20,5 +20,4 @@ RSpec.describe User, type: :model do
     user = User.create(name: '', email: '', password: '', password_confirmation: '')
     expect(user.errors.full_messages).to eq(["Email can't be blank", "Password can't be blank", "Name can't be blank"])
   end
-
 end
