@@ -8,27 +8,24 @@
     </ul>
      
   </article>
-  <%if current_user == @user%>
+<%if current_user == @user%>
   <h1>friend requests</h1>
- 
- <% current_user.pending_friends.each do |user|%>
+ <% current_user.friend_requests.each do |user|%>
     <%=user.name%>
-    <button class='btn btn-secondary btn-sm gap-2 mb-2'>
-      <%= current_user.friendships.find_by_friend_id(user).confirmed %>
-    </button>
-    <%if current_user.pending_friends.include?(user)%>
-      <button class='btn btn-outline-success btn-sm gap-1 mb-2'>          
-        <%= link_to 'Accept', friendship_path(:id => user.id), :method => :patch%>
+    <%# <button class='btn btn-secondary btn-sm gap-2 mb-2'>
+      <%= current_user.friendships.find_by_id(user.id).confirmed %>
+    <%# </button> %> 
+    <%if current_user.friend_requests.include?(user)%>
+      <button class='btn btn-outline-success btn-sm gap-1 mb-2 profile-link'>          
+        <%= link_to 'Accept', friendship_path(:id => user.id), :method => :put%>
       </button>
-      <button class='btn btn-outline-warning btn-sm gap-1 mb-2'>
+      <button class='btn btn-outline-warning btn-sm gap-1 mb-2 profile-link'>
        <%= link_to 'reject', friendship_path(:id => user.id), :method => :delete%>
-      </button>
-      
+      </button>   
     <%end%>
     <%= render user%>
   <%end%>
 <%end%>  
  
-
 
  

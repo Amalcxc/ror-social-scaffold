@@ -10,7 +10,7 @@ class FriendshipsController < ApplicationController
   end
 
   def update
-    @friendship = Friendship.where(friend_id: [current_user, params[:id]], user_id: [current_user, params[:id]]).first
+    @friendship = Friendship.where(friend_id: current_user.id, user_id: params[:id]).first
     @friendship.update(confirmed: true)
     if @friendship.save
       redirect_to users_path, notice: 'Friend request accepted.'

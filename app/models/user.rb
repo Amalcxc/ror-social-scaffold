@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, uniqueness: true, presence: true, length: { maximum: 20 }
+  validates :name,  presence: true, length: { maximum: 20 }
 
   has_many :posts
   has_many :comments, dependent: :destroy
@@ -12,11 +12,19 @@ class User < ApplicationRecord
 
   has_many :friendships
   has_many :inverse_friendships, class_name: 'Friendship', foreign_key: 'friend_id'
+  has_many :pending_friends, -> { where confirmed: false }, class_name: 'Frienships', foreign_key: 'friend_id'
+  
+  # def friends
+  #   friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
+  #   (friends_array + inverse_friendships.map { |friendship| friendship.user if friendship.confirmed })
+  #   friends_array.compact
+  # end
 
   def friends
-    friends_array = friendships.map { |friendship| friendship.friend if friendship.confirmed }
-    (friends_array + inverse_friendships.map { |friendship| friendship.user if friendship.confirmed })
-    friends_array.compact
+    friends_i_sent_invitation = Friendship.where(user_id: id, confirmed: true).pluck(:friend_id)
+    friends_i_got_invitation = Friendship.where(friend_id: id, confirmed: true).pluck(:user_id)
+    ids = friends_i_sent_invitation && friends_i_got_invitation
+    User.where(id: ids)
   end
 
   # Users who have yet to confirme friend requests
