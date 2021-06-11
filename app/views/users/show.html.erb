@@ -2,13 +2,15 @@
 
   <h2><%= "Name: #{@user.name}" %></h2>
    <span class= "friend">
-   <% unless @user == current_user  || current_user.friend?(@user) %>
+   <% unless @user == current_user  || current_user.friend?(@user) || current_user.pending_friends.include?(@user) || @user.friend_requests.include?(current_user)%>
        <button type="button" class="btn btn-success">
         <%= link_to 'invite', create_friendship_path(@user), method: :post %>
        </button>
+       <%else%>
+        <span>you invited this user</span> 
     <% end %>
   </span>
- <% if current_user.friends.include?(@user) || current_user == @user %>
+ <% if current_user.friends.include?(@user) || current_user == @user  %>
       <h3>Recent posts:</h3>
       <ul class="posts">
         <%= render @posts %>
@@ -22,9 +24,6 @@
   <h1>friend requests</h1>
  <% current_user.friend_requests.each do |user|%>
     <%=user.name%>
-    <%# <button class='btn btn-secondary btn-sm gap-2 mb-2'>
-      <%= current_user.friendships.find_by_id(user.id).confirmed %>
-    <%# </button> %> 
     <%if current_user.friend_requests.include?(user)%>
       <button class='btn btn-outline-success btn-sm gap-1 mb-2 profile-link'>          
         <%= link_to 'Accept', friendship_path(:id => user.id), :method => :put%>
