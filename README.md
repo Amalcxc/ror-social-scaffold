@@ -9,7 +9,7 @@
 - Ruby on Rails 
 
 ## Live Demo
-[Live Demo Link]()
+
 
 ## Getting Started
 
