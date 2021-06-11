@@ -9,7 +9,7 @@
 - Ruby on Rails v5.2.4
 
 ## Live Demo
-[Live Demo Link](https://git.heroku.com/ror-social-scaffold24.git)
+[Live Demo Link]()
 
 ## Getting Started
 
