@@ -33,6 +33,8 @@ GEM
       activemodel (= 5.2.6)
       activesupport (= 5.2.6)
       arel (>= 9.0)
+    activerecord-nulldb-adapter (0.7.0)
+      activerecord (>= 5.2.0, < 6.3)
     activestorage (5.2.6)
       actionpack (= 5.2.6)
       activerecord (= 5.2.6)
@@ -238,6 +240,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  activerecord-nulldb-adapter
   bootsnap (>= 1.1.0)
   byebug
   capybara
@@ -260,7 +263,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.7.0p0
+   ruby 2.7.2p137
 
 BUNDLED WITH
    2.2.17
