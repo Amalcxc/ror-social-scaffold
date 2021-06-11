@@ -4,11 +4,13 @@
     <%= link_to 'See Profile',  user_path(user), class: 'profile-link' %>
   </span>
   <span class= "friend">
-   <% unless user == current_user  || current_user.friends.include?(user) %>
+   <% unless user == current_user  || current_user.friends.include?(user) || current_user.pending_friends.include?(user) || user.friend_requests.include?(current_user) %>
        <button type="button" class="btn btn-success">
        <%= link_to 'invite', create_friendship_path(user), method: :post %>
-       </button> 
-    <% end %>
+       </button>
+       <%else%>
+        <span>you invited</span> 
+   <% end %>
   
   </span> 
 </li>
