@@ -11,6 +11,10 @@
 ## Live Demo
 [Live Demo Link](https://git.heroku.com/ror-social-scaffold24.git)
 
+## Getting Started
+
+To get a local copy up and running follow these simple example steps.
+
 ### Prerequisites
 
 Ruby: 2.6.3
