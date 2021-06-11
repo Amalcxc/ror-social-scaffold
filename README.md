@@ -5,8 +5,8 @@
 
 ## Built With
 
-- Ruby v2.7.0
-- Ruby on Rails v5.2.4
+- Ruby 
+- Ruby on Rails 
 
 ## Live Demo
 [Live Demo Link]()
